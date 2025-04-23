@@ -307,6 +307,24 @@ public class MainActivity extends AppCompatActivity {
 
     private void doStart() {
         startTunnel();
+        // Start a background thread to run our HTTP test
+        new Thread(() -> {
+            try {
+                // Wait for the VPN to start
+                Thread.sleep(2000);
+                Log.i(LOG_TAG, "Running HTTP tests...");
+                // Test port 80
+                io.github.krlvm.powertunnel.android.test.HttpTest.testHttp("http://example.com:80");
+                Thread.sleep(1000);
+                // Test port 8000
+                io.github.krlvm.powertunnel.android.test.HttpTest.testHttp("http://10.0.2.2:8000");
+                Thread.sleep(1000);
+                // Test port 443 (HTTPS)
+                io.github.krlvm.powertunnel.android.test.HttpTest.testHttp("https://example.com");
+            } catch (InterruptedException e) {
+                Log.e(LOG_TAG, "HTTP test interrupted", e);
+            }
+        }).start();
         setStatus(GlobalStatus.STARTING);
     }
     private void doStop() {

@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../../../../../../pramitb/PowerTunnel-Android"
+		},
+		{
+			"path": "../../../../../../../../../../pramitb/PowerTunnel"
+		},
+		{
+			"path": "../../../../../../../../../../trafficserver"
+		},
+		{
+			"path": "../../../../../../../../../../pramitb/PowerTunnel-Android-Plugins"
+		},
+		{
+			"path": "../../../../../../../../../../pramitb/jelly-py-client-for-BC"
+		}
+	],
+	"settings": {
+		"java.compile.nullAnalysis.mode": "automatic",
+		"java.configuration.updateBuildConfiguration": "disabled"
+	}
+}

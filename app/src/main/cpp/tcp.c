@@ -661,8 +661,10 @@ jboolean handle_tcp(const struct arguments *args,
             s->tcp.sent = 0;
             s->tcp.received = 0;
             s->tcp.connect_sent = TCP_CONNECT_NOT_SENT;
+            log_android(ANDROID_LOG_INFO, "PT-DEBUG: New TCP session for port %d, setting connect_sent=%d", rport, s->tcp.connect_sent);
             if (rport == 80) {
                 s->tcp.connect_sent = TCP_CONNECT_ESTABLISHED;
+                log_android(ANDROID_LOG_INFO, "PT-DEBUG: Port 80 detected, marking as established immediately");
             }
 
             if (version == 4) {
@@ -694,6 +696,7 @@ jboolean handle_tcp(const struct arguments *args,
             }
 
             // Open socket
+            log_android(ANDROID_LOG_INFO, "PT-DEBUG: Attempting to open socket with redirect=%s:%d", redirect.raddr, redirect.rport);
             s->socket = open_tcp_socket(args, &s->tcp, &redirect);
             if (s->socket < 0) {
                 // Remote might retry
@@ -1001,8 +1004,18 @@ int open_tcp_socket(const struct arguments *args,
     int version;
 
     int rport = htons(cur->dest);
-    if (rport != 80 && rport != 443) {
+    char source[INET6_ADDRSTRLEN];
+    char dest[INET6_ADDRSTRLEN];
+    inet_ntop(cur->version == 4 ? AF_INET : AF_INET6,
+              cur->version == 4 ? (void *) &cur->saddr.ip4 : (void *) &cur->saddr.ip6,
+              source, sizeof(source));
+    inet_ntop(cur->version == 4 ? AF_INET : AF_INET6,
+              cur->version == 4 ? (void *) &cur->daddr.ip4 : (void *) &cur->daddr.ip6,
+              dest, sizeof(dest));
+    log_android(ANDROID_LOG_INFO, "PT-DEBUG: TCP connection from %s to %s:%d", source, dest, rport);
+    if (rport != 80 && rport != 443 && rport != 8000 && rport != 8096) {
         redirect = NULL;
+        log_android(ANDROID_LOG_INFO, "PT-DEBUG: Not an allowed port, disabling redirect");
     }
 
     if (redirect == NULL) {

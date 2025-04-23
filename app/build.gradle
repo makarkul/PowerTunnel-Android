@@ -20,9 +20,19 @@ plugins {
 }
 
 android {
+    namespace 'io.github.krlvm.powertunnel.android'
     compileSdkVersion 30
-    buildToolsVersion '30.0.3'
     ndkVersion '22.1.7171670'
+
+    lint {
+        disable 'ProtectedPermissions'
+        disable 'NotificationPermission'
+        disable 'ExpiredTargetSdkVersion'
+        disable 'ObsoleteSdkInt'
+        checkReleaseBuilds false
+        abortOnError true
+        baseline file("lint-baseline.xml")
+    }
 
     defaultConfig {
         applicationId 'io.github.krlvm.powertunnel.android'
@@ -60,6 +70,7 @@ android {
 
     buildFeatures {
         viewBinding true
+        buildConfig true
     }
 
     buildTypes {
@@ -74,6 +85,7 @@ android {
 }
 
 dependencies {
+    implementation 'com.jcraft:jzlib:1.1.3'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'com.google.guava:guava:31.0.1-android'

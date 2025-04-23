@@ -1,0 +1,1218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 8.8.1" type="baseline" client="gradle" dependencies="false" name="AGP (8.8.1)" variant="all" version="8.8.1">
+
+    <issue
+        id="ScopedStorage"
+        message="WRITE_EXTERNAL_STORAGE no longer provides write access when targeting Android 11+, even when using `requestLegacyExternalStorage`"
+        errorLine1="    &lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; />"
+        errorLine2="                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="17"
+            column="36"/>
+    </issue>
+
+    <issue
+        id="ApplySharedPref"
+        message="Consider using `apply()` instead; `commit` writes its data to persistent storage immediately, whereas `apply` will handle it in the background"
+        errorLine1="                    .putString(&quot;mode&quot;, &quot;proxy&quot;).commit();"
+        errorLine2="                                                ~~~~~~~~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/activities/MainActivity.java"
+            line="174"
+            column="49"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        message="Implicitly using the default locale is a common source of bugs: Use `toLowerCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        errorLine1="                final String _query = query.toLowerCase();"
+        errorLine2="                                            ~~~~~~~~~~~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/activities/AppListActivity.java"
+            line="82"
+            column="45"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        message="Implicitly using the default locale is a common source of bugs: Use `toLowerCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        errorLine1="                setFilter(app -> app.label.toLowerCase().contains(_query)"
+        errorLine2="                                           ~~~~~~~~~~~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/activities/AppListActivity.java"
+            line="83"
+            column="44"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        message="Implicitly using the default locale is a common source of bugs: Use `toLowerCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        errorLine1="                        || app.packageName.toLowerCase().contains(_query));"
+        errorLine2="                                           ~~~~~~~~~~~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/activities/AppListActivity.java"
+            line="84"
+            column="44"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        message="Implicitly using the default locale is a common source of bugs: Use `toUpperCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        errorLine1="                .getString(&quot;mode&quot;, TunnelMode.VPN.name()).toUpperCase()"
+        errorLine2="                                                          ~~~~~~~~~~~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/services/PowerTunnelService.java"
+            line="71"
+            column="59"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        message="Implicitly using the default locale is a common source of bugs: Use `toUpperCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        errorLine1="                        UpstreamProxyType.valueOf(prefs.getString(&quot;upstream_proxy_protocol&quot;, &quot;http&quot;).toUpperCase())"
+        errorLine2="                                                                                                     ~~~~~~~~~~~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/managers/ProxyManager.java"
+            line="195"
+            column="102"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        message="Implicitly using the default locale is a common source of bugs: Use `toLowerCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        errorLine1="                    (Build.MODEL != null &amp;&amp; Build.MODEL.toLowerCase().startsWith(&quot;sm-&quot;))"
+        errorLine2="                                                        ~~~~~~~~~~~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/services/TunnelingVpnService.java"
+            line="162"
+            column="57"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="`&lt;io.github.krlvm.powertunnel.android.services.QuickTileService>` requires API level 24 (current min is 16)"
+        errorLine1="        &lt;service"
+        errorLine2="        ^">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="91"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Field requires API level 19 (current min is 16): `java.nio.charset.StandardCharsets#UTF_8`"
+        errorLine1="                            bundle = new PropertyResourceBundle(new InputStreamReader(_in, StandardCharsets.UTF_8));"
+        errorLine2="                                                                                           ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/preferences/AndroidPluginPreferenceParser.java"
+            line="56"
+            column="92"/>
+    </issue>
+
+    <issue
+        id="NewApi"
+        message="Field requires API level 19 (current min is 16): `java.nio.charset.StandardCharsets#UTF_8`"
+        errorLine1="                final InputStream in = new ByteArrayInputStream(TextUtils.join(&quot;\n&quot;, lines).getBytes(StandardCharsets.UTF_8));"
+        errorLine2="                                                                                                     ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/activities/LogActivity.java"
+            line="109"
+            column="102"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        message="Attribute `banner` is only used in API level 21 and higher (current min is 16)"
+        errorLine1="        android:banner=&quot;@mipmap/tv_banner&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="29"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        message="Attribute `tooltipText` is only used in API level 26 and higher (current min is 16)"
+        errorLine1="            android:tooltipText=&quot;@string/alt_plugin_settings&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/plugin_item.xml"
+            line="89"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        message="Attribute `tooltipText` is only used in API level 26 and higher (current min is 16)"
+        errorLine1="            android:tooltipText=&quot;@string/alt_plugin_uninstall&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/plugin_item.xml"
+            line="103"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        message="Attribute `tooltipText` is only used in API level 26 and higher (current min is 16)"
+        errorLine1="            android:tooltipText=&quot;@string/alt_plugin_about&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/plugin_item.xml"
+            line="115"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="LeanbackUsesWifi"
+        message="Requiring Wifi permissions limits app availability on TVs that support only Ethernet"
+        errorLine1="    &lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot; />"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="14"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="UnspecifiedRegisterReceiverFlag"
+        message="`receiver = new BroadcastReceiver() {&#xA;            @Override&#xA;            public void onReceive(Context context, Intent intent) {&#xA;                if (intent == null || intent.getAction() == null) return;&#xA;                switch (intent.getAction()) {&#xA;                    case PowerTunnelService.BROADCAST_STARTED:&#xA;                    case PowerTunnelService.BROADCAST_STOPPED: {&#xA;                        updateStatus();&#xA;                        if(restartServerOnResume) {&#xA;                            doStart();&#xA;                            restartServerOnResume = false;&#xA;                            unlockConfigurationWhenRunning = false;&#xA;                        }&#xA;                        break;&#xA;                    }&#xA;                    case PowerTunnelService.BROADCAST_FAILURE: {&#xA;                        setStatus(GlobalStatus.NOT_RUNNING);&#xA;                        if(intent.getExtras() == null) {&#xA;                            Log.w(LOG_TAG, &quot;Startup failure broadcast has no details&quot;);&#xA;                            break;&#xA;                        }&#xA;                        final Bundle extras = intent.getExtras();&#xA;                        final TunnelMode mode = ((TunnelMode) extras.getSerializable(PowerTunnelService.EXTRAS_MODE));&#xA;                        if(mode == null) {&#xA;                            Log.w(LOG_TAG, &quot;Startup failure broadcast extras doesn&apos;t have mode&quot;);&#xA;                            break;&#xA;                        }&#xA;                        String error = extras.getString(PowerTunnelService.EXTRAS_ERROR);&#xA;                        if(error == null) error = &quot;unknown error&quot;;&#xA;&#xA;                        final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this)&#xA;                                .setTitle(R.string.dialog_error_failed_to_start_title)&#xA;                                .setPositiveButton(R.string.ok, (dialog, which) -> dialog.dismiss());&#xA;                        switch (mode) {&#xA;                            case PROXY: {&#xA;                                builder.setMessage(getString(R.string.dialog_error_failed_to_start_message_proxy, error));&#xA;                                break;&#xA;                            }&#xA;                            case VPN: {&#xA;                                if(extras.containsKey(PowerTunnelService.EXTRAS_ERROR_FW) &amp;&amp; extras.getBoolean(PowerTunnelService.EXTRAS_ERROR_FW)) {&#xA;                                    builder.setMessage(R.string.dialog_error_failed_to_start_message_vpn_fw)&#xA;                                            .setPositiveButton(R.string.learn_more, (dialog, which) ->&#xA;                                                    Utility.launchUri(&#xA;                                                            MainActivity.this,&#xA;                                                            &quot;https://github.com/krlvm/PowerTunnel-Android/wiki/Troubleshooting-VPN-on-Samsung-devices&quot;&#xA;                                                    ));&#xA;                                } else {&#xA;                                    builder.setMessage(getString(R.string.dialog_error_failed_to_start_message_vpn, error));&#xA;                                }&#xA;                                break;&#xA;                            }&#xA;                        }&#xA;                        builder.create().show();&#xA;                        break;&#xA;                    }&#xA;                    case PowerTunnelService.BROADCAST_CERT: {&#xA;                        CertificateManager.checkCertificate(MainActivity.this, REQUEST_CERT_INSTALL, REQUEST_CERT_SAVE);&#xA;                        break;&#xA;                    }&#xA;                }&#xA;            }&#xA;        }` is missing `RECEIVER_EXPORTED` or `RECEIVER_NOT_EXPORTED` flag for unprotected broadcasts registered for io.github.krlvm.powertunnel.android.broadcast.STARTED, io.github.krlvm.powertunnel.android.broadcast.STOPPED, io.github.krlvm.powertunnel.android.broadcast.FAILURE, io.github.krlvm.powertunnel.android.broadcast.CERT"
+        errorLine1="        registerReceiver(receiver = new BroadcastReceiver() {"
+        errorLine2="        ^">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/activities/MainActivity.java"
+            line="90"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UnspecifiedRegisterReceiverFlag"
+        message="`receiver = new BroadcastReceiver() {&#xA;            @Override&#xA;            public void onReceive(Context context, Intent intent) {&#xA;                updateState();&#xA;                if (PowerTunnelService.BROADCAST_FAILURE.equals(intent.getAction())) {&#xA;                    showErrorToast();&#xA;                    launchActivity();&#xA;                }&#xA;            }&#xA;        }` is missing `RECEIVER_EXPORTED` or `RECEIVER_NOT_EXPORTED` flag for unprotected broadcasts registered for io.github.krlvm.powertunnel.android.broadcast.STARTED, io.github.krlvm.powertunnel.android.broadcast.STOPPED, io.github.krlvm.powertunnel.android.broadcast.FAILURE"
+        errorLine1="        registerReceiver(receiver = new BroadcastReceiver() {"
+        errorLine2="        ^">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/services/QuickTileService.java"
+            line="139"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        message="Resource references will not work correctly in images generated for this vector icon for API &lt; 21; check generated icon to make sure it looks acceptable"
+        errorLine1="      android:fillColor=&quot;@android:color/white&quot;"
+        errorLine2="                         ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable-anydpi/ic_add.xml"
+            line="9"
+            column="26"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        message="Resource references will not work correctly in images generated for this vector icon for API &lt; 21; check generated icon to make sure it looks acceptable"
+        errorLine1="      android:fillColor=&quot;@android:color/white&quot;"
+        errorLine2="                         ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable-anydpi/ic_delete.xml"
+            line="9"
+            column="26"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        message="Resource references will not work correctly in images generated for this vector icon for API &lt; 21; check generated icon to make sure it looks acceptable"
+        errorLine1="      android:fillColor=&quot;@android:color/white&quot;"
+        errorLine2="                         ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable-anydpi/ic_download.xml"
+            line="9"
+            column="26"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        message="Resource references will not work correctly in images generated for this vector icon for API &lt; 21; check generated icon to make sure it looks acceptable"
+        errorLine1="      android:fillColor=&quot;@android:color/white&quot;"
+        errorLine2="                         ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable-anydpi/ic_globe.xml"
+            line="9"
+            column="26"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        message="Resource references will not work correctly in images generated for this vector icon for API &lt; 21; check generated icon to make sure it looks acceptable"
+        errorLine1="      android:fillColor=&quot;@android:color/white&quot;"
+        errorLine2="                         ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable-anydpi/ic_info.xml"
+            line="9"
+            column="26"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        message="Resource references will not work correctly in images generated for this vector icon for API &lt; 21; check generated icon to make sure it looks acceptable"
+        errorLine1="      android:fillColor=&quot;@android:color/white&quot;"
+        errorLine2="                         ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable-anydpi/ic_plugins.xml"
+            line="9"
+            column="26"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        message="Resource references will not work correctly in images generated for this vector icon for API &lt; 21; check generated icon to make sure it looks acceptable"
+        errorLine1="      android:fillColor=&quot;@android:color/white&quot;"
+        errorLine2="                         ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable-anydpi/ic_refresh.xml"
+            line="9"
+            column="26"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        message="Resource references will not work correctly in images generated for this vector icon for API &lt; 21; check generated icon to make sure it looks acceptable"
+        errorLine1="      android:fillColor=&quot;@android:color/white&quot;"
+        errorLine2="                         ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable-anydpi/ic_save.xml"
+            line="9"
+            column="26"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        message="Resource references will not work correctly in images generated for this vector icon for API &lt; 21; check generated icon to make sure it looks acceptable"
+        errorLine1="      android:fillColor=&quot;@android:color/white&quot;"
+        errorLine2="                         ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable-anydpi/ic_search.xml"
+            line="9"
+            column="26"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        message="Resource references will not work correctly in images generated for this vector icon for API &lt; 21; check generated icon to make sure it looks acceptable"
+        errorLine1="      android:fillColor=&quot;@android:color/white&quot;"
+        errorLine2="                         ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable-anydpi/ic_undo.xml"
+            line="9"
+            column="26"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        message="Limit vector icons sizes to 200×200 to keep icon drawing fast; see https://developer.android.com/studio/write/vector-asset-studio#when for more"
+        errorLine1="    android:width=&quot;320dp&quot;"
+        errorLine2="                   ~~~~~">
+        <location
+            file="src/main/res/drawable/tv_banner_foreground.xml"
+            line="2"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        message="Limit vector icons sizes to 200×200 to keep icon drawing fast; see https://developer.android.com/studio/write/vector-asset-studio#when for more"
+        errorLine1="    android:width=&quot;320dp&quot;"
+        errorLine2="                   ~~~~~">
+        <location
+            file="src/debug/res/drawable/tv_banner_foreground.xml"
+            line="19"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of `compileSdkVersion` than 30 is available: 34"
+        errorLine1="    compileSdkVersion 30"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="24"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.appcompat:appcompat than 1.3.1 is available: 1.7.0"
+        errorLine1="    implementation &apos;androidx.appcompat:appcompat:1.3.1&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="95"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.recyclerview:recyclerview than 1.2.1 is available: 1.4.0"
+        errorLine1="    implementation &apos;androidx.recyclerview:recyclerview:1.2.1&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="97"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.preference:preference than 1.1.1 is available: 1.2.1"
+        errorLine1="    implementation &apos;androidx.preference:preference:1.1.1&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="98"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of com.android.tools:desugar_jdk_libs than 1.1.5 is available: 2.1.5"
+        errorLine1="    coreLibraryDesugaring &apos;com.android.tools:desugar_jdk_libs:1.1.5&apos;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="100"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.test.ext:junit than 1.1.3 is available: 1.2.1"
+        errorLine1="    androidTestImplementation &apos;androidx.test.ext:junit:1.1.3&apos;"
+        errorLine2="                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="103"
+            column="31"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.test.espresso:espresso-core than 3.4.0 is available: 3.6.1"
+        errorLine1="    androidTestImplementation &apos;androidx.test.espresso:espresso-core:3.4.0&apos;"
+        errorLine2="                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="104"
+            column="31"/>
+    </issue>
+
+    <issue
+        id="StringFormatInvalid"
+        message="Format string &apos;`dialog_update_available_message`&apos; is not a valid format string so it should not be passed to `String.format`"
+        errorLine1="                    .setContentText(getString(R.string.dialog_update_available_message, info.getVersion()))"
+        errorLine2="                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/services/QuickTileService.java"
+            line="162"
+            column="37"/>
+        <location
+            file="src/main/res/values-tr/strings.xml"
+            line="162"
+            column="5"
+            message="This definition does not require arguments"/>
+    </issue>
+
+    <issue
+        id="StringFormatInvalid"
+        message="Format string &apos;`dialog_update_available_message`&apos; is not a valid format string so it should not be passed to `String.format`"
+        errorLine1="                .setMessage(context.getString(R.string.dialog_update_available_message, info.getVersion()) + &quot;\n\n&quot; + info.getChangelog())"
+        errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/updater/Updater.java"
+            line="48"
+            column="29"/>
+        <location
+            file="src/main/res/values-tr/strings.xml"
+            line="162"
+            column="5"
+            message="This definition does not require arguments"/>
+    </issue>
+
+    <issue
+        id="StringFormatCount"
+        message="Inconsistent number of arguments in formatting string `dialog_update_available_message`; found both 0 here and 1 in values/strings.xml"
+        errorLine1="    &lt;string name=&quot;dialog_update_available_message&quot;>1$s sürümü yüklenmeye hazır&lt;/string>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-tr/strings.xml"
+            line="162"
+            column="5"/>
+        <location
+            file="src/main/res/values/strings.xml"
+            line="215"
+            column="5"
+            message="Conflicting number of arguments (1) here"/>
+    </issue>
+
+    <issue
+        id="TrustAllX509TrustManager"
+        message="`checkClientTrusted` is empty, which could cause insecure network traffic due to trusting arbitrary TLS/SSL certificates presented by peers">
+        <location
+            file="libs/core-2.5.2-all.jar"/>
+    </issue>
+
+    <issue
+        id="TrustAllX509TrustManager"
+        message="`checkClientTrusted` is empty, which could cause insecure network traffic due to trusting arbitrary TLS/SSL certificates presented by peers">
+        <location
+            file="libs/core-2.5.2-all.jar"/>
+    </issue>
+
+    <issue
+        id="TrustAllX509TrustManager"
+        message="`checkClientTrusted` is empty, which could cause insecure network traffic due to trusting arbitrary TLS/SSL certificates presented by peers">
+        <location
+            file="libs/core-2.5.2-all.jar"/>
+    </issue>
+
+    <issue
+        id="TrustAllX509TrustManager"
+        message="`checkServerTrusted` is empty, which could cause insecure network traffic due to trusting arbitrary TLS/SSL certificates presented by peers">
+        <location
+            file="libs/core-2.5.2-all.jar"/>
+    </issue>
+
+    <issue
+        id="TrustAllX509TrustManager"
+        message="`checkServerTrusted` is empty, which could cause insecure network traffic due to trusting arbitrary TLS/SSL certificates presented by peers">
+        <location
+            file="libs/core-2.5.2-all.jar"/>
+    </issue>
+
+    <issue
+        id="AcceptsUserCertificates"
+        message="The Network Security Configuration allows the use of user certificates in the release version of your app"
+        errorLine1="            &lt;certificates src=&quot;user&quot; />"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/xml/network_security_config.xml"
+            line="23"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="InsecureBaseConfiguration"
+        message="Insecure Base Configuration"
+        errorLine1="    &lt;base-config cleartextTrafficPermitted=&quot;true&quot;>"
+        errorLine2="                                            ~~~~">
+        <location
+            file="src/main/res/xml/network_security_config.xml"
+            line="20"
+            column="45"/>
+    </issue>
+
+    <issue
+        id="UnspecifiedImmutableFlag"
+        message="Missing `PendingIntent` mutability flag"
+        errorLine1="                                0"
+        errorLine2="                                ~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/utility/NotificationHelper.java"
+            line="65"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="UnspecifiedImmutableFlag"
+        message="Missing `PendingIntent` mutability flag"
+        errorLine1="                        new Intent(context, MainActivity.class), 0)"
+        errorLine2="                                                                 ~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/utility/NotificationHelper.java"
+            line="71"
+            column="66"/>
+    </issue>
+
+    <issue
+        id="UnspecifiedImmutableFlag"
+        message="Missing `PendingIntent` mutability flag"
+        errorLine1="                    .setContentIntent(PendingIntent.getActivity(this, 0, Updater.getDownloadIntent(info), 0))"
+        errorLine2="                                                                                                          ~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/services/QuickTileService.java"
+            line="164"
+            column="107"/>
+    </issue>
+
+    <issue
+        id="UnspecifiedImmutableFlag"
+        message="Missing `PendingIntent` mutability flag"
+        errorLine1="                            PendingIntent.getActivity(this, 0, Updater.getDownloadIntent(info), 0)"
+        errorLine2="                                                                                                ~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/services/QuickTileService.java"
+            line="167"
+            column="97"/>
+    </issue>
+
+    <issue
+        id="UnspecifiedImmutableFlag"
+        message="Missing `PendingIntent` mutability flag"
+        errorLine1="                new Intent(this, MainActivity.class), 0"
+        errorLine2="                                                      ~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/services/TunnelingVpnService.java"
+            line="246"
+            column="55"/>
+    </issue>
+
+    <issue
+        id="QueryAllPackagesPermission"
+        message="A `&lt;queries>` declaration should generally be used instead of QUERY_ALL_PACKAGES; see https://g.co/dev/packagevisibility for details"
+        errorLine1="    &lt;uses-permission android:name=&quot;android.permission.QUERY_ALL_PACKAGES&quot; />"
+        errorLine2="                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="18"
+            column="22"/>
+    </issue>
+
+    <issue
+        id="NotifyDataSetChanged"
+        message="It will always be more efficient to use more specific change events if you can. Rely on `notifyDataSetChanged` as a last resort."
+        errorLine1="        notifyDataSetChanged();"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/adapters/AppAdapter.java"
+            line="48"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="NotifyDataSetChanged"
+        message="It will always be more efficient to use more specific change events if you can. Rely on `notifyDataSetChanged` as a last resort."
+        errorLine1="                            notifyDataSetChanged();"
+        errorLine2="                            ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/adapters/PluginAdapter.java"
+            line="117"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="MergeRootFrame"
+        message="This `&lt;FrameLayout>` can be replaced with a `&lt;merge>` tag"
+        errorLine1="&lt;FrameLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/layout/config_edit_activity.xml"
+            line="18"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="MergeRootFrame"
+        message="This `&lt;FrameLayout>` can be replaced with a `&lt;merge>` tag"
+        errorLine1="&lt;FrameLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/layout/log_activity.xml"
+            line="18"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="MergeRootFrame"
+        message="This `&lt;FrameLayout>` can be replaced with a `&lt;merge>` tag"
+        errorLine1="&lt;FrameLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/layout/splash_activity.xml"
+            line="19"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.ic_launcher_round_background` appears to be unused"
+        errorLine1="    &lt;color name=&quot;ic_launcher_round_background&quot;>#4CAF50&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/ic_launcher_round_background.xml"
+            line="20"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_undo` appears to be unused">
+        <location
+            file="src/main/res/drawable-hdpi/ic_undo.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.menu.menu_plugin_settings` appears to be unused"
+        errorLine1="&lt;menu xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/menu/menu_plugin_settings.xml"
+            line="18"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.xml.network_security_config` appears to be unused"
+        errorLine1="&lt;network-security-config>"
+        errorLine2="^">
+        <location
+            file="src/main/res/xml/network_security_config.xml"
+            line="19"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.settings_pref_upstream_proxy_auth_description` appears to be unused"
+        errorLine1="    &lt;string name=&quot;settings_pref_upstream_proxy_auth_description&quot;>Authenticate on upstream proxy server&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="144"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.settings_pref_vpn_resolve_hosts` appears to be unused"
+        errorLine1="    &lt;string name=&quot;settings_pref_vpn_resolve_hosts&quot;>Resolve domain names&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="149"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.settings_pref_vpn_resolve_hosts_description` appears to be unused"
+        errorLine1="    &lt;string name=&quot;settings_pref_vpn_resolve_hosts_description&quot;>Increases performance but reduces functionality&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="150"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.action_plugin_settings_reset` appears to be unused"
+        errorLine1="    &lt;string name=&quot;action_plugin_settings_reset&quot;>Reset configuration&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="186"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.bool.config_materialPreferenceIconSpaceReserved` appears to be unused"
+        errorLine1="    &lt;bool name=&quot;config_materialPreferenceIconSpaceReserved&quot; tools:ignore=&quot;MissingDefaultResource,PrivateResource&quot;>false&lt;/bool>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-sw360dp/values-preference.xml"
+            line="19"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="IconXmlAndPng"
+        message="The following images appear both as density independent `.xml` files and as bitmap files: src/main/res/drawable-anydpi/ic_add.xml, src/main/res/drawable-hdpi/ic_add.png">
+        <location
+            file="src/main/res/drawable-xxhdpi/ic_add.png"/>
+        <location
+            file="src/main/res/drawable-xhdpi/ic_add.png"/>
+        <location
+            file="src/main/res/drawable-mdpi/ic_add.png"/>
+        <location
+            file="src/main/res/drawable-hdpi/ic_add.png"/>
+        <location
+            file="src/main/res/drawable-anydpi/ic_add.xml"/>
+    </issue>
+
+    <issue
+        id="IconXmlAndPng"
+        message="The following images appear both as density independent `.xml` files and as bitmap files: src/main/res/drawable-anydpi/ic_delete.xml, src/main/res/drawable-hdpi/ic_delete.png">
+        <location
+            file="src/main/res/drawable-xxhdpi/ic_delete.png"/>
+        <location
+            file="src/main/res/drawable-xhdpi/ic_delete.png"/>
+        <location
+            file="src/main/res/drawable-mdpi/ic_delete.png"/>
+        <location
+            file="src/main/res/drawable-hdpi/ic_delete.png"/>
+        <location
+            file="src/main/res/drawable-anydpi/ic_delete.xml"/>
+    </issue>
+
+    <issue
+        id="IconXmlAndPng"
+        message="The following images appear both as density independent `.xml` files and as bitmap files: src/main/res/drawable-anydpi/ic_download.xml, src/main/res/drawable-hdpi/ic_download.png">
+        <location
+            file="src/main/res/drawable-xxhdpi/ic_download.png"/>
+        <location
+            file="src/main/res/drawable-xhdpi/ic_download.png"/>
+        <location
+            file="src/main/res/drawable-mdpi/ic_download.png"/>
+        <location
+            file="src/main/res/drawable-hdpi/ic_download.png"/>
+        <location
+            file="src/main/res/drawable-anydpi/ic_download.xml"/>
+    </issue>
+
+    <issue
+        id="IconXmlAndPng"
+        message="The following images appear both as density independent `.xml` files and as bitmap files: src/main/res/drawable-anydpi/ic_globe.xml, src/main/res/drawable-hdpi/ic_globe.png">
+        <location
+            file="src/main/res/drawable-xxhdpi/ic_globe.png"/>
+        <location
+            file="src/main/res/drawable-xhdpi/ic_globe.png"/>
+        <location
+            file="src/main/res/drawable-mdpi/ic_globe.png"/>
+        <location
+            file="src/main/res/drawable-hdpi/ic_globe.png"/>
+        <location
+            file="src/main/res/drawable-anydpi/ic_globe.xml"/>
+    </issue>
+
+    <issue
+        id="IconXmlAndPng"
+        message="The following images appear both as density independent `.xml` files and as bitmap files: src/main/res/drawable-anydpi/ic_info.xml, src/main/res/drawable-hdpi/ic_info.png">
+        <location
+            file="src/main/res/drawable-xxhdpi/ic_info.png"/>
+        <location
+            file="src/main/res/drawable-xhdpi/ic_info.png"/>
+        <location
+            file="src/main/res/drawable-mdpi/ic_info.png"/>
+        <location
+            file="src/main/res/drawable-hdpi/ic_info.png"/>
+        <location
+            file="src/main/res/drawable-anydpi/ic_info.xml"/>
+    </issue>
+
+    <issue
+        id="IconXmlAndPng"
+        message="The following images appear both as density independent `.xml` files and as bitmap files: src/main/res/drawable-anydpi/ic_plugins.xml, src/main/res/drawable-hdpi/ic_plugins.png">
+        <location
+            file="src/main/res/drawable-xxhdpi/ic_plugins.png"/>
+        <location
+            file="src/main/res/drawable-xhdpi/ic_plugins.png"/>
+        <location
+            file="src/main/res/drawable-mdpi/ic_plugins.png"/>
+        <location
+            file="src/main/res/drawable-hdpi/ic_plugins.png"/>
+        <location
+            file="src/main/res/drawable-anydpi/ic_plugins.xml"/>
+    </issue>
+
+    <issue
+        id="IconXmlAndPng"
+        message="The following images appear both as density independent `.xml` files and as bitmap files: src/main/res/drawable-anydpi/ic_refresh.xml, src/main/res/drawable-hdpi/ic_refresh.png">
+        <location
+            file="src/main/res/drawable-xxhdpi/ic_refresh.png"/>
+        <location
+            file="src/main/res/drawable-xhdpi/ic_refresh.png"/>
+        <location
+            file="src/main/res/drawable-mdpi/ic_refresh.png"/>
+        <location
+            file="src/main/res/drawable-hdpi/ic_refresh.png"/>
+        <location
+            file="src/main/res/drawable-anydpi/ic_refresh.xml"/>
+    </issue>
+
+    <issue
+        id="IconXmlAndPng"
+        message="The following images appear both as density independent `.xml` files and as bitmap files: src/main/res/drawable-anydpi/ic_save.xml, src/main/res/drawable-hdpi/ic_save.png">
+        <location
+            file="src/main/res/drawable-xxhdpi/ic_save.png"/>
+        <location
+            file="src/main/res/drawable-xhdpi/ic_save.png"/>
+        <location
+            file="src/main/res/drawable-mdpi/ic_save.png"/>
+        <location
+            file="src/main/res/drawable-hdpi/ic_save.png"/>
+        <location
+            file="src/main/res/drawable-anydpi/ic_save.xml"/>
+    </issue>
+
+    <issue
+        id="IconXmlAndPng"
+        message="The following images appear both as density independent `.xml` files and as bitmap files: src/main/res/drawable-anydpi/ic_search.xml, src/main/res/drawable-hdpi/ic_search.png">
+        <location
+            file="src/main/res/drawable-xxhdpi/ic_search.png"/>
+        <location
+            file="src/main/res/drawable-xhdpi/ic_search.png"/>
+        <location
+            file="src/main/res/drawable-mdpi/ic_search.png"/>
+        <location
+            file="src/main/res/drawable-hdpi/ic_search.png"/>
+        <location
+            file="src/main/res/drawable-anydpi/ic_search.xml"/>
+    </issue>
+
+    <issue
+        id="IconXmlAndPng"
+        message="The following images appear both as density independent `.xml` files and as bitmap files: src/main/res/drawable-anydpi/ic_settings.xml, src/main/res/drawable-hdpi/ic_settings.png">
+        <location
+            file="src/main/res/drawable-xxhdpi/ic_settings.png"/>
+        <location
+            file="src/main/res/drawable-xhdpi/ic_settings.png"/>
+        <location
+            file="src/main/res/drawable-mdpi/ic_settings.png"/>
+        <location
+            file="src/main/res/drawable-hdpi/ic_settings.png"/>
+        <location
+            file="src/main/res/drawable-anydpi/ic_settings.xml"/>
+    </issue>
+
+    <issue
+        id="IconXmlAndPng"
+        message="The following images appear both as density independent `.xml` files and as bitmap files: src/main/res/drawable-anydpi/ic_undo.xml, src/main/res/drawable-hdpi/ic_undo.png">
+        <location
+            file="src/main/res/drawable-xxhdpi/ic_undo.png"/>
+        <location
+            file="src/main/res/drawable-xhdpi/ic_undo.png"/>
+        <location
+            file="src/main/res/drawable-mdpi/ic_undo.png"/>
+        <location
+            file="src/main/res/drawable-hdpi/ic_undo.png"/>
+        <location
+            file="src/main/res/drawable-anydpi/ic_undo.xml"/>
+    </issue>
+
+    <issue
+        id="MonochromeLauncherIcon"
+        message="The application adaptive icon is missing a monochrome tag"
+        errorLine1="&lt;adaptive-icon xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;>"
+        errorLine2="^">
+        <location
+            file="src/debug/res/mipmap-anydpi-v26/ic_launcher.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="MonochromeLauncherIcon"
+        message="The application adaptive icon is missing a monochrome tag"
+        errorLine1="&lt;adaptive-icon xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;>"
+        errorLine2="^">
+        <location
+            file="src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="MonochromeLauncherIcon"
+        message="The application adaptive roundIcon is missing a monochrome tag"
+        errorLine1="&lt;adaptive-icon xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;>"
+        errorLine2="^">
+        <location
+            file="src/debug/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="MonochromeLauncherIcon"
+        message="The application adaptive roundIcon is missing a monochrome tag"
+        errorLine1="&lt;adaptive-icon xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;>"
+        errorLine2="^">
+        <location
+            file="src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png">
+        <location
+            file="src/debug/res/mipmap-hdpi/ic_launcher_round.png"/>
+        <location
+            file="src/debug/res/mipmap-hdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png">
+        <location
+            file="src/debug/res/mipmap-mdpi/ic_launcher_round.png"/>
+        <location
+            file="src/debug/res/mipmap-mdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png">
+        <location
+            file="src/debug/res/mipmap-xhdpi/ic_launcher_round.png"/>
+        <location
+            file="src/debug/res/mipmap-xhdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png">
+        <location
+            file="src/debug/res/mipmap-xxhdpi/ic_launcher_round.png"/>
+        <location
+            file="src/debug/res/mipmap-xxhdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png">
+        <location
+            file="src/debug/res/mipmap-xxxhdpi/ic_launcher_round.png"/>
+        <location
+            file="src/debug/res/mipmap-xxxhdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png">
+        <location
+            file="src/main/res/mipmap-hdpi/ic_launcher_round.png"/>
+        <location
+            file="src/main/res/mipmap-hdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png">
+        <location
+            file="src/main/res/mipmap-mdpi/ic_launcher_round.png"/>
+        <location
+            file="src/main/res/mipmap-mdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png">
+        <location
+            file="src/main/res/mipmap-xhdpi/ic_launcher_round.png"/>
+        <location
+            file="src/main/res/mipmap-xhdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png">
+        <location
+            file="src/main/res/mipmap-xxhdpi/ic_launcher_round.png"/>
+        <location
+            file="src/main/res/mipmap-xxhdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png">
+        <location
+            file="src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"/>
+        <location
+            file="src/main/res/mipmap-xxxhdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="Autofill"
+        message="Missing `autofillHints` attribute"
+        errorLine1="    &lt;EditText"
+        errorLine2="     ~~~~~~~~">
+        <location
+            file="src/main/res/layout/config_edit_activity.xml"
+            line="31"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="    &lt;ImageView"
+        errorLine2="     ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/app_item.xml"
+            line="13"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="LabelFor"
+        message="Missing accessibility label: where minSdk &lt; 17, you should provide an `android:hint`"
+        errorLine1="    &lt;EditText"
+        errorLine2="     ~~~~~~~~">
+        <location
+            file="src/main/res/layout/config_edit_activity.xml"
+            line="31"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        binding.crashAppVersion.setText(BuildConfig.VERSION_NAME + &quot; (&quot; + BuildConfig.VERSION_CODE + &quot;)&quot;);"
+        errorLine2="                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/activities/CrashActivity.java"
+            line="56"
+            column="41"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        binding.crashCoreVersion.setText(BuildConstants.VERSION + &quot; (&quot; + BuildConstants.VERSION_CODE + &quot;)&quot;);"
+        errorLine2="                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/activities/CrashActivity.java"
+            line="57"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        binding.crashOs.setText(Build.VERSION.RELEASE + &quot; (API &quot; + Build.VERSION.SDK_INT + &quot;)&quot;);"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/activities/CrashActivity.java"
+            line="58"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        errorLine1="        binding.crashOs.setText(Build.VERSION.RELEASE + &quot; (API &quot; + Build.VERSION.SDK_INT + &quot;)&quot;);"
+        errorLine2="                                                        ~~~~~~~~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/activities/CrashActivity.java"
+            line="58"
+            column="57"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        holder.binding.pluginVersion.setText(&quot;Version &quot; + plugin.getVersion());"
+        errorLine2="                                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/adapters/PluginAdapter.java"
+            line="67"
+            column="46"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        errorLine1="        holder.binding.pluginVersion.setText(&quot;Version &quot; + plugin.getVersion());"
+        errorLine2="                                             ~~~~~~~~~~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/adapters/PluginAdapter.java"
+            line="67"
+            column="46"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        holder.binding.pluginAuthor.setText(&quot;by &quot; + plugin.getAuthor());"
+        errorLine2="                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/adapters/PluginAdapter.java"
+            line="68"
+            column="45"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        errorLine1="        holder.binding.pluginAuthor.setText(&quot;by &quot; + plugin.getAuthor());"
+        errorLine2="                                            ~~~~~">
+        <location
+            file="src/main/java/io/github/krlvm/powertunnel/android/adapters/PluginAdapter.java"
+            line="68"
+            column="45"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;(c) krlvm, 2019-2022&quot;, should use `@string` resource"
+        errorLine1="                android:text=&quot;(c) krlvm, 2019-2022&quot; />"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/about_activity.xml"
+            line="121"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;App Version     &quot;, should use `@string` resource"
+        errorLine1="                &lt;TextView android:text=&quot;App Version     &quot; />"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/crash_activity.xml"
+            line="47"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Core Version&quot;, should use `@string` resource"
+        errorLine1="                &lt;TextView android:text=&quot;Core Version&quot; />"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/crash_activity.xml"
+            line="54"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;OS Version&quot;, should use `@string` resource"
+        errorLine1="                &lt;TextView android:text=&quot;OS Version&quot; />"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/crash_activity.xml"
+            line="61"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Cause&quot;, should use `@string` resource"
+        errorLine1="                &lt;TextView android:text=&quot;Cause&quot; />"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/crash_activity.xml"
+            line="68"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;(c) krlvm, 2019-2022&quot;, should use `@string` resource"
+        errorLine1="                android:text=&quot;(c) krlvm, 2019-2022&quot; />"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/main_activity.xml"
+            line="144"
+            column="17"/>
+    </issue>
+
+</issues>
