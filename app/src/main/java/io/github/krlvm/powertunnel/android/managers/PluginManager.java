@@ -41,14 +41,20 @@ import io.github.krlvm.powertunnel.android.utility.FileUtility;
 public class PluginManager {
 
     public static Set<String> getDisabledPlugins(Context context) {
+        Set<String> defaultDisabled = new HashSet<>();
+        defaultDisabled.add("AdBlock-Android.jar");
+        defaultDisabled.add("DNSResolver-Android.jar");
+        defaultDisabled.add("DNSResolver-Legacy-Android.jar");
+        defaultDisabled.add("Firewall-Android.jar");
+        defaultDisabled.add("Hosts-Android.jar");
+        defaultDisabled.add("LibertyTunnel-Android.jar");
         return PreferenceManager.getDefaultSharedPreferences(context)
-                .getStringSet("disabled_plugins", new HashSet<>(Collections.singletonList("AdBlock-Android.jar")));
+                .getStringSet("disabled_plugins", defaultDisabled);
     }
 
     public static void extract(Context context) {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        if(prefs.getInt("version_code", -1) == BuildConfig.VERSION_CODE) return;
-
+        Log.w("PluginManager", "=== Extracting plugins ===");
         try {
             extractPlugins(context);
         } catch (IOException ex) {
