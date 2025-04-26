@@ -32,10 +32,8 @@ fi
 echo "Building SDK..."
 "$POWER_TUNNEL_ROOT/gradlew" :sdk:clean :sdk:build :sdk:jar || handle_error $LINENO
 
-# Copy SDK to Android project
-echo "Copying SDK to Android project..."
-mkdir -p "$POWER_TUNNEL_ANDROID_ROOT/app/libs"
-cp "$POWER_TUNNEL_ROOT/sdk/build/libs/sdk-2.0.jar" "$POWER_TUNNEL_ANDROID_ROOT/app/libs/" || handle_error $LINENO
+# Note: We don't copy the SDK JAR directly to the Android project
+# because it's already included in the core-all.jar
 
 echo "=== Building PowerTunnel core ==="
 # Build core with updated SDK
