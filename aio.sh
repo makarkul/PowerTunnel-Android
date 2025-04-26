@@ -19,7 +19,7 @@ export POWER_TUNNEL_ROOT=/Users/makarand/PowerTunnel
 export POWER_TUNNEL_ANDROID_ROOT=/Users/makarand/PowerTunnel-Android
 export PLUGINS_ROOT=/Users/makarand/PowerTunnel-Android-Plugins
 
-echo "=== Building PowerTunnel core ==="
+echo "=== Building PowerTunnel SDK ==="
 cd "$POWER_TUNNEL_ROOT" || handle_error $LINENO
 
 # Ensure gradlew is executable
@@ -28,7 +28,30 @@ if [ ! -x "$POWER_TUNNEL_ROOT/gradlew" ]; then
     chmod +x "$POWER_TUNNEL_ROOT/gradlew"
 fi
 
-# Build PowerTunnel
+# Build SDK
+echo "Building SDK..."
+"$POWER_TUNNEL_ROOT/gradlew" :sdk:clean :sdk:build :sdk:jar || handle_error $LINENO
+
+# Copy SDK to Android project
+echo "Copying SDK to Android project..."
+mkdir -p "$POWER_TUNNEL_ANDROID_ROOT/app/libs"
+cp "$POWER_TUNNEL_ROOT/sdk/build/libs/sdk-2.0.jar" "$POWER_TUNNEL_ANDROID_ROOT/app/libs/" || handle_error $LINENO
+
+echo "=== Building PowerTunnel core ==="
+# Build core with updated SDK
+echo "Building core module..."
+"$POWER_TUNNEL_ROOT/gradlew" :core:clean :core:build || handle_error $LINENO
+
+# Build fat JAR for core
+echo "Building fat JAR for core..."
+"$POWER_TUNNEL_ROOT/gradlew" :core:fatJar || handle_error $LINENO
+
+# Copy core JAR to Android project
+echo "Copying core JAR to Android project..."
+cp "$POWER_TUNNEL_ROOT/core/build/libs/core-2.5.2-all.jar" "$POWER_TUNNEL_ANDROID_ROOT/app/libs/" || handle_error $LINENO
+
+# Build PowerTunnel with all components
+echo "Building complete PowerTunnel project..."
 "$POWER_TUNNEL_ROOT/gradlew" clean build || handle_error $LINENO
 
 echo "=== Processing plugins ==="
