@@ -43,7 +43,7 @@ kill_emulator
 
 # Start new emulator in foreground
 echo "Starting Medium_Phone_API_35 emulator in foreground..."
-"$ANDROID_HOME/emulator/emulator" -avd Medium_Phone_API_35 -selinux permissive -no-snapshot-load -tcpdump abc.pcap &
+"$ANDROID_HOME/emulator/emulator" -avd Medium_Phone_API_35 -selinux permissive -no-snapshot-load &
 
 # Wait for emulator to start (timeout after 2 minutes)
 echo "Waiting for emulator to start..."

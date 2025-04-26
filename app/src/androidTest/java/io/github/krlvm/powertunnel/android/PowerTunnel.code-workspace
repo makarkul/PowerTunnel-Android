@@ -1,19 +1,13 @@
 {
 	"folders": [
 		{
-			"path": "../../../../../../../../../../pramitb/PowerTunnel-Android"
+			"path": "../../../../../../../../../../PowerTunnel-Android-Plugins"
 		},
 		{
-			"path": "../../../../../../../../../../pramitb/PowerTunnel"
+			"path": "../../../../../../../../../../PowerTunnel"
 		},
 		{
-			"path": "../../../../../../../../../../trafficserver"
-		},
-		{
-			"path": "../../../../../../../../../../pramitb/PowerTunnel-Android-Plugins"
-		},
-		{
-			"path": "../../../../../../../../../../pramitb/jelly-py-client-for-BC"
+			"path": "../../../../../../../../.."
 		}
 	],
 	"settings": {
